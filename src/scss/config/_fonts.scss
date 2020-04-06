@@ -1,0 +1,11 @@
+@include font('Roboto', normal, 400, '../fonts/roboto-regular');
+@include font('Roboto', normal, 700, '../fonts/roboto-bold');
+
+@include font('RobotoCondensed', normal, 300, '../fonts/robotocondensed-light');
+@include font('RobotoCondensed', normal, 300, '../fonts/robotocondensed-regular');
+@include font('RobotoCondensed', normal, 700, '../fonts/robotocondensed-bold');
+
+@include font('PTSans', normal, 700, '../fonts/ptsans-bold');
+
+@include font('OpenSans', normal, 600, '../fonts/opensans-semibold');
+@include font('OpenSans', normal, 800, '../fonts/opensans-extrabold');
