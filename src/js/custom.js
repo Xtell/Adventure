@@ -1,11 +1,18 @@
 //custom scripts
+let html = document.querySelector("html");
 
 let body = document.querySelector("body");
 let popup = document.querySelector(".popup");
 let popupButton = document.querySelector("#popup");
 let closePopup = document.querySelector(".popup__close");
-console.log(body.classList)
 
+let mainNav = document.querySelector(".main-nav");
+let mainNavToggle = document.querySelector(".main-nav__toggle");
+
+mainNavToggle.addEventListener('click', function(evt) {
+    evt.preventDefault();
+    html.classList.toggle("show-main-menu");
+});
 popupButton.addEventListener('click', function(evt) {
     evt.preventDefault();
     togglePopup(popup);

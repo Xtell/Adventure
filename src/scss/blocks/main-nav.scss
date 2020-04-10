@@ -6,10 +6,13 @@
     @include reset-list;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 .main-nav__item {
     margin-left: 30px;
+    &:first-child {
+        margin-left: 0;
+    }
 }
 .main-nav__link {
     font-size: 14px;
@@ -27,4 +30,87 @@
 }
 .main-nav__item--active .main-nav__link{
     color: $accent-color;
+}
+
+@include media-breakpoint-down($lg) {
+    .main-nav {
+        position: fixed;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        min-height: 100vh;
+        height: 100vh;
+        overflow-y: auto;
+        transform: translateY(-2000px);
+        transition: all 0.7s;
+    }
+    .main-nav__list {
+        flex-direction: column;
+        text-align: center;
+    }
+    .main-nav__item {
+        margin-left: 0;
+        margin-bottom: 20px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .main-nav__link {
+        font-size: 25px;
+    }
+    .main-nav__toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 50px;
+        padding: 15px 10px;
+        border: none;
+        background-color: transparent;
+        & span {
+            position: relative;
+            display: inline-block;
+            width: 30px;
+            height: 3px;
+            background-color: $text-color;
+            transition: background-color 0.3s;
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 3px;
+                left: 0;
+                top: -10px;
+                transform: rotate(0);
+                background-color: $text-color;
+                transition: top 0.3s 0.2s, transform 0.3s;
+            }
+            &::after {
+                top: 10px;
+            }
+        }
+    }
+    .show-main-menu .main-nav{
+        transform: translateY(0);
+        transition: all 0.7s ease-out;
+    }
+    .show-main-menu .main-nav__toggle span {
+        background: 0;
+        transition: background 0.3s;
+        &::before,
+        &::after {
+            top: 0;
+            left: 50%;
+            margin-left: -15px;
+            transition: top 0.3s, transform 0.3s 0.2s;
+        }
+        &::before {
+            transform: rotate(-45deg);
+        }
+        &::after {
+            transform: rotate(45deg);
+
+        }
+    }
 }
