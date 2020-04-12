@@ -3,12 +3,16 @@
     vertical-align: middle;
     margin: 0;
     user-select: none;
-    padding: 10px 15px;
+    padding: 15px 40px;
+    font-size: 16px;
+    line-height: normal;
+    font-weight: 700;
     border: 0;
     background-color: $accent-color;
     color: #ffffff;
     text-align: center;
     text-decoration: none;
+    text-transform: uppercase;
     cursor: pointer;
     transition: 0.3s background-color;
     &:not(.btn--disabled):hover {

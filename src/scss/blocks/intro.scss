@@ -1,0 +1,114 @@
+.intro {
+    position: relative;
+    width: 100%;
+    min-height: 781px;
+    // height: 781px;
+    background-color: rgba(0, 0, 0, 0.36);
+    background-image: url("../images/bg.webp");
+    background-repeat: no-repeat;
+    background-position:  center;
+    background-size: cover;
+    @supports (background-blend-mode: color) {
+        background-blend-mode: color;
+    }
+}
+
+.no-webp .intro {
+    background-image: url("../images/bg.jpg");
+}
+.intro__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.intro__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 781px;
+
+}
+.intro__title {
+    margin: 0;
+    margin-bottom: 20px;
+    font-family: "OpenSans", "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 90px;
+    line-height: 90px;
+    letter-spacing: 12px;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+
+}
+.intro__slider-btn {
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+}
+.intro__slider-btn--prev {
+    left: 12%;
+}
+.intro__slider-btn--next {
+    right: 12%;
+}
+.intro__subtitle {
+    margin: 0;
+    margin-bottom: 86px;
+    font-family: "OpenSans", "Arial", sans-serif;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: normal;
+    text-transform: uppercase;
+    letter-spacing: 6.44px;
+    text-align: center;
+}
+
+@include media-breakpoint-down($lg) {
+    .intro__title {
+        margin-bottom: 10px;
+        font-size: 75px;
+        letter-spacing: 5px;
+    }
+    .intro__subtitle {
+        margin-bottom: 66px;
+        letter-spacing: 2px;
+    }
+    .intro__slider-btn--prev {
+        left: 2%;
+    }
+    .intro__slider-btn--next {
+        right: 2%;
+    }
+}
+@include media-breakpoint-down($md) {
+    .intro__title {
+        font-size: 60px;
+        letter-spacing: 3px;
+    }
+    .intro__subtitle {
+        letter-spacing: 1px;
+    }
+    .intro__slider-btn {
+        margin-top: -25px;
+    }
+}
+@include media-breakpoint-down($sm) {
+    .intro,
+    .intro__list {
+        min-height: 600px;
+    }
+    .intro__title {
+        font-size: 36px;
+        margin-bottom: 0;
+        line-height: normal;
+    }
+    .intro__subtitle {
+        font-size: 12px;
+        padding: 0 30px;
+    }
+}

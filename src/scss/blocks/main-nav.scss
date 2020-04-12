@@ -1,6 +1,8 @@
 .main-nav {
     width: 450px;
-
+}
+.main-nav__toggle {
+    display: none;
 }
 .main-nav__list {
     @include reset-list;
@@ -35,14 +37,16 @@
 @include media-breakpoint-down($lg) {
     .main-nav {
         position: fixed;
-        top: 100px;
+        top: 86px;
         left: 0;
         width: 100%;
         min-height: 100vh;
         height: 100vh;
+        background-color: #ffffff;
         overflow-y: auto;
         transform: translateY(-2000px);
         transition: all 0.7s;
+        z-index: 20;
     }
     .main-nav__list {
         flex-direction: column;

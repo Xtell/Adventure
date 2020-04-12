@@ -1,21 +1,21 @@
 let baseDir = "src"
 
 const gulp            = require('gulp'),
-    sass            = require('gulp-sass'),
-    csso            = require('gulp-csso'),
-    postcss         = require('gulp-postcss'),
-    autoprefixer    = require('autoprefixer'),
-    imagemin        = require('gulp-imagemin'),
-    webp            = require('imagemin-webp'),
-    svgSprite       = require('gulp-svg-sprite'),
-    uglify          = require('gulp-uglify-es').default,
-    rename          = require('gulp-rename'),
-    concat          = require('gulp-concat'),
-    rigger          = require('gulp-rigger'),
-    del             = require('del'),
-    debug           = require('gulp-debug'),
-    extReplace      = require('gulp-ext-replace'),
-    browserSync     = require('browser-sync').create();
+      sass            = require('gulp-sass'),
+      csso            = require('gulp-csso'),
+      postcss         = require('gulp-postcss'),
+      autoprefixer    = require('autoprefixer'),
+      imagemin        = require('gulp-imagemin'),
+      webp            = require('imagemin-webp'),
+      svgSprite       = require('gulp-svg-sprite'),
+      uglify          = require('gulp-uglify-es').default,
+      rename          = require('gulp-rename'),
+      concat          = require('gulp-concat'),
+      rigger          = require('gulp-rigger'),
+      del             = require('del'),
+      debug           = require('gulp-debug'),
+      extReplace      = require('gulp-ext-replace'),
+      browserSync     = require('browser-sync').create();
 
 const paths = {
     styles: {
@@ -52,11 +52,11 @@ gulp.task('serve', function(done) {
 gulp.task('styles', function () {
     return gulp.src(paths.styles.src)
     .pipe(sass())
-    .pipe(postcss([ autoprefixer() ]))
+    .pipe(postcss([ autoprefixer('last 2 versions') ]))
     .pipe(csso())
     .pipe(rename('main.min.css'))
     .pipe(gulp.dest(paths.styles.dest))
-    .pipe(browserSync.stream());
+    .pipe(browserSync.stream())
 });
 
 gulp.task('scripts', function() {
