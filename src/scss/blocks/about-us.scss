@@ -1,0 +1,31 @@
+.about-us__container {
+    padding-top: 88px;
+    padding-bottom: 78px;
+}
+.about-us__header {
+    text-align: center;
+}
+.about-us__title {
+    margin: 0;
+    margin-bottom: 40px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+.about-us__subtitle {
+    margin: 0;
+    padding: 0 170px;
+    font-size: 18px;
+    font-weight: 300;
+}
+.about-us__body {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.about-us__column {
+    width: 570px;
+}
