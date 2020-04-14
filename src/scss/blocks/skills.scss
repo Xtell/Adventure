@@ -1,0 +1,51 @@
+.skills__list {
+    @include reset-list;    
+}
+.skills__item {
+    position: relative;
+    width: 100%;
+    min-height: 33px;
+    margin-bottom: 28px;
+    background-color: #f2f2f2;
+    border: 1px solid #c4c4c4;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+.skills__item:nth-child(1) .skills__progress-bar{
+    width: 80%;
+
+}
+.skills__item:nth-child(2) .skills__progress-bar{
+    width: 60%;
+
+}
+.skills__item:nth-child(3) .skills__progress-bar{
+    width: 75%;
+    
+}
+.skills__item:nth-child(4) .skills__progress-bar{
+    width: 90%;
+    
+}
+.skills__item:nth-child(5) .skills__progress-bar{
+    width: 50%;
+    
+}
+.skills__item:nth-child(6) .skills__progress-bar{
+    width: 85%;
+    
+}
+.skills__progress-bar {
+    display: block;
+    padding: 0 18px;
+    min-height: 31px;
+    background-color: #ec4848;
+}
+
+.skills__name {
+    display: inline-block;
+    max-width: 100%;
+    font-size: 16px;
+    color: #ffffff;
+}

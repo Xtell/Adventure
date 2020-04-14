@@ -1,9 +1,11 @@
-.about-us__container {
+.about-us {
     padding-top: 88px;
     padding-bottom: 78px;
+    border-bottom: 1px solid #ebebeb;
 }
 .about-us__header {
     text-align: center;
+    margin-bottom: 60px;
 }
 .about-us__title {
     margin: 0;
@@ -15,17 +17,42 @@
     text-transform: uppercase;
 }
 .about-us__subtitle {
-    margin: 0;
-    padding: 0 170px;
+    width: 840px;
+    margin: 0 auto;
     font-size: 18px;
     font-weight: 300;
 }
-.about-us__body {
+.about-us__wrapper {
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 8px;
+}
+.about-us__inner {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
 }
 .about-us__column {
-    width: 570px;
+    width: 48%;
+}
+
+@include media-breakpoint-down($md) {
+    .about-us__subtitle {
+        width: 540px;
+    }
+    .about-us__column {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+@include media-breakpoint-down($sm) {
+    .about-us__title {
+        font-size: 36px;
+    }
+    .about-us__subtitle {
+        width: calc(100% - 30px);
+        font-size: 16px;
+    }
+
 }
