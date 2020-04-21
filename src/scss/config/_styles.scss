@@ -56,6 +56,8 @@ body {
 }
 @include media-breakpoint-up($xl)  {
     .container {
-        max-width: 1200px;
+        max-width: 1170px;
+        padding-left: 30px;
+        padding-right: 30px;
     }
 }

@@ -40,7 +40,26 @@
     justify-content: center;
     align-items: center;
 }
+.slider__dots {
+    width: 160px;
+    margin: 0 auto;
+    text-align: center;
 
+}
+.slider__dot {
+    width: 13px;
+    height: 13px;
+    margin-right: 8px;
+    padding: 0;
+    background-color: #3f444a;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    &--active {
+        background-color: $accent-color;
+
+    }
+}
 @include media-breakpoint-down($md) {
     .slider__btn {
         width: 50px;
