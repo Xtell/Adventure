@@ -36,7 +36,11 @@
 .about-us__column {
     width: 48%;
 }
-
+@include media-breakpoint-down($lg) {
+    .about-us__subtitle {
+        width: 690px;
+    }
+}
 @include media-breakpoint-down($md) {
     .about-us__subtitle {
         width: 540px;

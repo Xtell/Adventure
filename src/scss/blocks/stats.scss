@@ -1,0 +1,90 @@
+.stats {
+    padding: 50px 0;
+    border-bottom: 1px solid #ebebeb;
+}
+.stats__container {
+    display: flex;
+    flex-direction: column;
+
+}
+.stats__wrapper {
+    min-height: 375px;
+    background-image: url("../images/stats-bg.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.stats__inner {
+    display: flex;
+    align-items: center;
+    min-height: 375px;
+    padding: 50px 0;
+}
+.stats__list {
+    @include reset-list;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    width: calc(100% + 20px);
+    margin-top: -20px;
+    margin-left: -20px;
+}
+.stats__item {
+    position: relative;
+    width: 260px;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 122px 30px 50px 30px;
+    background-color: rgba(236, 72, 72, 0.3);
+    &:last-child {
+        margin-right: 0;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 122px;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+    &--heart::before {
+        background-image: url("../images/icon-heart.svg");
+    }
+    &--check::before {
+        background-image: url("../images/icon-check.svg");
+    }
+    &--repeat::before {
+        background-image: url("../images/icon-repeat.svg");
+    }
+    &--beer::before {
+        background-image: url("../images/icon-beer.svg");
+    }
+}
+.no-webp .stats__wrapper {
+    background-image: url("../images/stats-bg.jpg");
+}
+.stats__amount {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+}
+.stats__desc {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 6.44px;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+@include media-breakpoint-down($lg) {
+    .stats__list {
+        justify-content: center;
+    }
+}

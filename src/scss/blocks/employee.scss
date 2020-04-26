@@ -1,0 +1,60 @@
+.employee {
+    position: relative;
+    width: 260px;
+    overflow-y: hidden;
+}
+
+.employee__photo {
+    display: block;
+}
+.employee__info {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+    background-color: $accent-color;
+    text-align: center;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+}
+.employee:hover .employee__info {
+    transform: translateY(0);
+}
+.employee__name {
+    margin: 0;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    color: #ffffff;
+}
+.employee__position {
+    display: block;
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 30px;
+}
+.employee__link {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    &:last-child {
+        margin-right: 0;
+    }
+    &:hover::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0px;
+        width: 100%;
+        height: 2px;
+        background-color: #000000;
+    }
+    &:hover path {
+        fill: #000000;
+    }
+}

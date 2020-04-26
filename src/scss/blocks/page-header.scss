@@ -13,16 +13,6 @@
 .page-header__logo {
     width: 192px;
 }
-.page-header__logo-link {
-    font-family: "PTSans", "Arial", sans-serif;
-    font-size: 34px;
-    line-height: normal;
-    font-weight: 700;
-    letter-spacing: -2px;
-    text-transform: uppercase;
-    color: $accent-color;
-    text-decoration: none;
-}
 .page-header__nav {
     margin-left: auto;
 }
@@ -45,8 +35,5 @@
 @include media-breakpoint-down($sm) {
     .page-header__logo {
         width: 170px;
-    }
-    .page-header__logo-link {
-        font-size: 26px;
     }
 }

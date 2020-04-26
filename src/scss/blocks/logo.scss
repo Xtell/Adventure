@@ -1,0 +1,15 @@
+.logo__link {
+    font-family: "PTSans", "Arial", sans-serif;
+    font-size: 34px;
+    line-height: normal;
+    font-weight: 700;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    color: $accent-color;
+    text-decoration: none;
+}
+@include media-breakpoint-down($sm) {
+    .logo__link {
+        font-size: 26px;
+    }
+}

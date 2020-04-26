@@ -1,0 +1,43 @@
+.page-section {
+    padding: 50px 0;
+    border-bottom: 1px solid #ebebeb;
+}
+.page-section__title {
+    margin: 0;
+    margin-bottom: 40px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 45px;
+}
+.page-section__subtitle {
+    width: 730px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 32px;
+    text-align: center;
+}
+
+@include media-breakpoint-down($lg) {
+    .page-section__subtitle {
+        width: 690px;
+    }
+}
+@include media-breakpoint-down($md) {
+    .page-section__title {
+        font-size: 36px;
+    }
+    .page-section__subtitle {
+        width: calc(100% - 30px);
+    }
+}
+@include media-breakpoint-down($sm) {
+    .page-section__title {
+        font-size: 30px;
+    }
+}
