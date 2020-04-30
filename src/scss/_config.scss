@@ -1,8 +1,99 @@
-@import 'config/libs';
-@import 'config/vars';
-@import 'config/mixins';
-@import 'config/breakpoints';
-@import 'config/fonts';
-@import 'config/styles';
+// Libs
+@import '../../node_modules/normalize.css/normalize';
+// Mixins
+@import 'mixins';
 
+// Breakpoints
+$xs: 0;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
 
+// Fonts
+@include font('Roboto', normal, 400, '../fonts/roboto-regular');
+@include font('Roboto', normal, 700, '../fonts/roboto-bold');
+
+@include font('RobotoCondensed', normal, 300, '../fonts/robotocondensed-light');
+@include font('RobotoCondensed', normal, 400, '../fonts/robotocondensed-regular');
+@include font('RobotoCondensed', normal, 700, '../fonts/robotocondensed-bold');
+
+@include font('PTSans', normal, 700, '../fonts/ptsans-bold');
+
+@include font('OpenSans', normal, 400, '../fonts/opensans-regular');
+@include font('OpenSans', normal, 600, '../fonts/opensans-semibold');
+@include font('OpenSans', normal, 800, '../fonts/opensans-extrabold');
+
+// Variables
+$accent-color: #ec4848;
+$bg-color: #ffffff;
+$text-color: #3f444a;
+$font-family: "RobotoCondensed", "Arial", sans-serif;
+$font-weight: normal;
+$font-size: 18px;
+$line-height: 30px;
+
+// General styles
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+.show-main-menu {
+    overflow: hidden;
+}
+
+body {
+    position: relative;
+    min-width: 320px;
+    font-family: $font-family;
+    font-size: $font-size;
+    line-height: $line-height;
+    color: $text-color;
+    background-color: $bg-color;
+}
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@include media-breakpoint-up($sm) {
+    .container {
+        max-width: 540px;
+    }
+}
+@include media-breakpoint-up($md)  {
+    .container {
+        max-width: 720px;
+    }
+}
+@include media-breakpoint-up($lg)  {
+    .container {
+        max-width: 960px;
+    }
+}
+@include media-breakpoint-up($xl)  {
+    .container {
+        max-width: 1170px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}

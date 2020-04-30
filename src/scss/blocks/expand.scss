@@ -27,15 +27,13 @@
     }
 }
 .expand__toggle {
-    // position: absolute;
-    // top: 0;
-    // right: 0;
     position: relative;
     padding: 0;
     border: 0;
     border-left: 1px solid #c4c4c4;
     background-color: #3f444a;
     width: 60px;
+    cursor: pointer;
 }
 .expand__toggle-circle {
     position: absolute;

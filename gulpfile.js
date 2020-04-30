@@ -1,46 +1,54 @@
 let baseDir = "src"
-
-const gulp            = require('gulp'),
-      sass            = require('gulp-sass'),
-      csso            = require('gulp-csso'),
-      postcss         = require('gulp-postcss'),
-      autoprefixer    = require('autoprefixer'),
-      imagemin        = require('gulp-imagemin'),
-      webp            = require('imagemin-webp'),
-      svgSprite       = require('gulp-svg-sprite'),
-      uglify          = require('gulp-uglify-es').default,
-      rename          = require('gulp-rename'),
-      concat          = require('gulp-concat'),
-      rigger          = require('gulp-rigger'),
-      del             = require('del'),
-      debug           = require('gulp-debug'),
-      extReplace      = require('gulp-ext-replace'),
-      browserSync     = require('browser-sync').create();
-
-const paths = {
-    styles: {
-        src: baseDir + '/scss/main.scss',
-        libs: baseDir + '/libs/css/*',
-        dest: "build/css/"
-    },
-    scripts: {
-        src: baseDir + '/js/main.js',
-        dest: 'build/js/'
-    },
-    images: {
-        src: baseDir + '/images/*',
-        dest: 'build/images/'
-    },
-    html: {
-        src: baseDir + '/*.html',
-        dest: 'build/'
-    },
-    fonts: {
-        src: baseDir + '/fonts/*.{woff2,woff}',
-        dist: 'build/fonts/'
+const gulp = require('gulp');
+const { src, dest, parallel, series, watch } = require('gulp');
+const scss         = require('gulp-sass');
+const csso         = require('gulp-csso');
+const postcss      = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const browserSync  = require('browser-sync');
+const uglify       = require('gulp-uglify-es').default;
+const concat       = require('gulp-concat');
+const rename       = require('gulp-rename');
+const plumber      = require('gulp-plumber');
+const imagemin     = require('gulp-imagemin');
+const webp = require('imagemin-webp');
+const svgstore     = require('gulp-svgstore');
+const extReplace   = require('gulp-ext-replace');
+const posthtml     = require('gulp-posthtml');
+const include      = require('posthtml-include');
+const del          = require('del');
+const cache        = require('gulp-cache');
+    const paths = {
+        styles: {
+            src: baseDir + '/scss/main.scss',
+            dest: "build/css/"
+        },
+        scripts: {
+            src: [
+                // "node_modules/jquery/dist/jquery.min.js",
+                "node_modules/picturefill/dist/picturefill.min.js",
+                baseDir + '/js/libs/modernizr-custom.js',
+                baseDir + '/js/main.js',
+            ],
+            dest: 'build/js/'
+        },
+        images: {
+            src: baseDir + '/images/',
+            icons: baseDir + '/images/icons/*',
+            dest: 'build/images/'
+        },
+        html: {
+            src: baseDir + '/*.html',
+            dest: 'build/'
+        },
+        fonts: {
+            src: baseDir + '/fonts/*.{woff2,woff}',
+            dest: 'build/fonts/'
+        },
+        cssOutputName: 'main.min.css',
+        jsOutputName:  'main.min.js',
+        
     }
-    
-}
 
 gulp.task('serve', function(done) {
     browserSync.init({
@@ -50,45 +58,58 @@ gulp.task('serve', function(done) {
 });
 
 gulp.task('styles', function () {
-    return gulp.src(paths.styles.src)
-    .pipe(sass())
-    .pipe(postcss([ autoprefixer('last 2 versions') ]))
+    return src(paths.styles.src)
+    .pipe(scss())
+    .pipe(postcss([ autoprefixer() ]))
     .pipe(csso())
-    .pipe(rename('main.min.css'))
-    .pipe(gulp.dest(paths.styles.dest))
-    .pipe(browserSync.stream())
+    .pipe(rename(paths.cssOutputName))
+    .pipe(dest(paths.styles.dest))
+    .pipe(browserSync.stream());
 });
 
 gulp.task('scripts', function() {
     return gulp.src(paths.scripts.src)
-    .pipe(rigger())
-    .pipe(rename('main.min.js'))
+    .pipe(concat(paths.jsOutputName))
     .pipe(uglify())
-    .pipe(gulp.dest(paths.scripts.dest))
+    .pipe(dest(paths.scripts.dest))
     .pipe(browserSync.stream());
 });
 gulp.task('imageOptimize', function() {
-    return gulp.src(paths.images.src)
+    return gulp.src([paths.images.src + '*', '!' + paths.images.icons])
     .pipe(imagemin([
-        imagemin.mozjpeg({quality: 95, progressive: true}),
+        imagemin.mozjpeg({quality: 80, progressive: true}),
         imagemin.optipng({optimizationLevel: 3}),
         imagemin.svgo()
     ]))
     .pipe(gulp.dest(paths.images.dest))
 });
-gulp.task('makeWebp', function() {
-    return gulp.src(paths.images.src +'.*{jpg,png}')
+gulp.task('webp', function() {
+    return gulp.src([paths.images.src +'*.*{jpg,png}'])
     .pipe(imagemin([
-        webp({quality: 95})
+        webp({quality: 80})
     ]))
     .pipe(extReplace('.webp'))
     .pipe(gulp.dest(paths.images.dest));
 });
-
-gulp.task('images', gulp.series('imageOptimize', 'makeWebp'));
+gulp.task('svgsprite', function() {
+    return src(paths.images.icons + ".svg")
+    .pipe(
+        imagemin([
+            imagemin.svgo()
+        ]))
+    .pipe(svgstore({
+        inlineSvg: true,
+    }))
+    .pipe(rename("sprite.svg"))
+    .pipe(dest(paths.images.dest))
+})
+gulp.task('images', gulp.series('imageOptimize', 'webp', 'svgsprite'));
 
 gulp.task('html', function () {
     return gulp.src(paths.html.src)
+    .pipe(posthtml([
+        include()
+    ]))
     .pipe(gulp.dest(paths.html.dest))
     .pipe(browserSync.stream());
 });
@@ -102,7 +123,7 @@ gulp.task('cleanBuild', function(){
 });
 gulp.task('copy', function() {
     return gulp.src(paths.fonts.src)
-    .pipe(gulp.dest(paths.fonts.dist))
+    .pipe(gulp.dest(paths.fonts.dest))
 });
-gulp.task('build', gulp.series('cleanBuild', 'copy', 'images', 'styles', 'scripts', 'html'));
-gulp.task('default', gulp.series('build', gulp.parallel('serve', 'watch')));
+gulp.task('build', series('cleanBuild', 'copy', 'images', 'styles', 'scripts', 'html'));
+gulp.task('default', series('build', parallel('serve', 'watch')));

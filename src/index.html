@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/main.min.css">
-    <script src="https://kit.fontawesome.com/7a14107df7.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header class="page-header">
@@ -27,7 +26,7 @@
                     </div>
                 </nav>
                 <div class="page-header__search-box">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"><path fill="#3f444a" d="M29.796 27.187a2.803 2.803 0 01-2.793 2.812c-.772 0-1.47-.314-1.976-.824l-8.186-8.242a11.05 11.05 0 01-5.668 1.566C5.003 22.499 0 17.462 0 11.249S5.003 0 11.173 0c6.171 0 11.174 5.037 11.174 11.25a11.24 11.24 0 01-1.556 5.707l8.187 8.242c.505.51.818 1.212.818 1.989zM11.173 2.812c-4.628 0-8.38 3.777-8.38 8.437 0 4.66 3.752 8.437 8.38 8.437 4.629 0 8.38-3.777 8.38-8.437 0-4.66-3.751-8.437-8.38-8.437z"/></svg>
+                    <include src="../app/build/images/icon-search.svg"></include>
                 </div>
                 <button class="main-nav__toggle" aria-label="Open navigation">
                     <span></span>
@@ -36,15 +35,54 @@
         </div>
     </header>
     <main>
-        <section class="intro slider">
-            <div class="intro__container container">
-                <div class="intro__wrapper slider__wrapper">
-                    <button type="button" class="intro__slider-btn intro__slider-btn--prev slider__btn slider__btn--prev">
-                        <span class="slider__btn-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="28"><path data-name="ARROW / LEFT" d="M14.348 3.58L4.523 14.246l9.953 10.805a2.123 2.123 0 01.525 1.413 1.96 1.96 0 01-1.875 2.036 1.791 1.791 0 01-1.3-.571L.576 15.715A2.115 2.115 0 010 14.25v-.009a2.118 2.118 0 01.574-1.465L11.824.561a1.8 1.8 0 011.3-.565A1.959 1.959 0 0115 2.036a2.106 2.106 0 01-.652 1.544z" fill-rule="evenodd"/></svg>
+        <section class="intro">
+            <div class="slider">
+                <div class="slider__togglers">
+                    <button type="button" class="slider__toggler slider__toggler--prev" aria-label="Preview slide">
+                        <span>
+                            <include src="../app/build/images/arrow-left.svg"></include>
                         </span>
                     </button>
-                        <ul class="intro__list slider__list">
+                    <button type="button" class="slider__toggler slider__toggler--next" aria-label="Next slide">
+                        <span>
+                            <include src="../app/build/images/arrow-right.svg"></include>
+                        </span>
+                    </button>
+                </div>
+                <div class="slider__overflow-wrap">
+                    <ul class="slider__inner">
+                        <li class="slider__item intro__item">
+                            <h1 class="intro__title">adventurer</h1>
+                            <p class="intro__subtitle">muri, a template at the heart of the beauty</p>
+                            <a href="#" class="intro__btn btn">See more</a>
+                        </li>
+                        <li class="slider__item intro__item">
+                            <b class="intro__title">adventurer</b>
+                            <p class="intro__subtitle">muri, a template at the heart of the beauty</p>
+                            <a href="#" class="intro__btn btn">See more</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- <div class="intro__container container">
+                <div class="intro__inner">
+                    <div class="slider">
+                        <div class="slider__wrapper">
+                            <ul class="slider__list">
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="intro__container container">
+                <div class="intro__wrapper slider__wrapper">
+                    <button type="button" class="intro__slider-btn intro__slider-btn--prev slider__btn slider__btn--prev" aria-label="Preview slide">
+                        <span class="slider__btn-icon">
+                            <include src="../app/build/images/arrow-left.svg"></include>
+                        </span>
+                    </button>
+                        <ul class="slider__list">
                             <li class="slider__item slider__item--current">
                                 <h1 class="intro__title">adventurer</h1>
                                 <p class="intro__subtitle">muri, a template at the heart of the beauty</p>
@@ -56,13 +94,13 @@
                                 <a href="#" class="intro__btn btn">See more</a>
                             </li>
                         </ul>
-                        <button type="button" class="intro__slider-btn intro__slider-btn--next slider__btn slider__btn--next">
+                        <button type="button" class="intro__slider-btn intro__slider-btn--next slider__btn slider__btn--next" aria-label="Next slide">
                             <span class="slider__btn-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="28"><path data-name="ARROW / LEFT" d="M.64 24.919l9.82-10.666L.51 3.448a2.145 2.145 0 01-.52-1.413A1.96 1.96 0 011.86 0a1.786 1.786 0 011.3.571l11.25 12.214a2.131 2.131 0 01.57 1.466v.008a2.131 2.131 0 01-.57 1.466L3.16 27.94v-.006a1.811 1.811 0 01-1.3.567 1.96 1.96 0 01-1.87-2.036 2.1 2.1 0 01.65-1.546z" fill-rule="evenodd"/></svg>
+                                <include src="../app/build/images/arrow-right.svg"></include>
                             </span>
                         </button>
                 </div>
-            </div>
+            </div> -->
         </section>
         <section class="page-section about-us">
                 <header class="about-us__header">
@@ -79,7 +117,7 @@
                                     <div class="expand__item">
                                         <div class="expand__title-wrapper">
                                             <h2 class="expand__title">Lorem ipsum dolor sit amet.</h2>
-                                            <button class="expand__toggle" type="button">
+                                            <button class="expand__toggle" type="button" aria-label="Expand">
                                                 <span class="expand__toggle-circle">
                                                 </span>
                                                 <span class="expand__toggle-lever"></span>
@@ -95,7 +133,7 @@
                                         <div class="expand__title-wrapper">
                                             <h2 class="expand__title">Lorem ipsum dolor sit amet.</h2>
                                             <button class="expand__toggle" type="button">
-                                                <span class="expand__toggle-circle">
+                                                <span class="expand__toggle-circle" aria-label="Expand">
                                                 </span>
                                                 <span class="expand__toggle-lever"></span>
                                             </button>
@@ -109,7 +147,7 @@
                                     <div class="expand__item">
                                         <div class="expand__title-wrapper">
                                             <h2 class="expand__title">Lorem ipsum dolor sit amet.</h2>
-                                            <button class="expand__toggle" type="button">
+                                            <button class="expand__toggle" type="button" aria-label="Expand">
                                                 <span class="expand__toggle-circle">
                                                 </span>
                                                 <span class="expand__toggle-lever"></span>
@@ -314,9 +352,9 @@
                         </div>
                     </div>
                     <p class="slider__dots">
-                        <button class="slider__dot slider__dot--active" type="button"></button>
-                        <button class="slider__dot" type="button"></button>
-                        <button class="slider__dot" type="button"></button>
+                        <button class="slider__dot slider__dot--active" type="button" aria-label="First slide"></button>
+                        <button class="slider__dot" type="button" aria-label="Second slide"></button>
+                        <button class="slider__dot" type="button" aria-label="Third slide"></button>
                     </p>
                 </div>
             </div>
@@ -365,16 +403,19 @@
                             <span class="employee__position">HTML coder</span>
                             <div class="employee__links">
                                 <a href="https://facebook.com" class="employee__link" aria-label="Facebook">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="8.094" height="17.09"><path d="M8.088.13v2.73s-2.049-.2-2.562.57a7.609 7.609 0 00-.138 2.54h2.717c-.23 1.04-.4 1.74-.563 2.64h-2.17v8.48H1.608V8.64h-1.6V5.97h1.584c.081-1.95.111-3.88 1.1-4.87C3.8-.01 4.856.13 8.088.13z" fill="#fff" fill-rule="evenodd"/></svg>
+                                    <include src="../app/build/images/icon-facebook.svg"></include>
                                 </a>
                                 <a href="https://twitter.com" aria-label="twitter.com" class="employee__link">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="17.25" height="13.78"><path d="M11.735 0a3.7 3.7 0 012.8 1.09 5.713 5.713 0 001.815-.6c.147-.08.294-.15.441-.23a3.514 3.514 0 01-1.15 1.63 1.767 1.767 0 01-.388.27v.01a6.953 6.953 0 002-.53 5.569 5.569 0 01-1.2 1.36c-.184.14-.369.29-.553.43a9.944 9.944 0 01-7.1 9.93 10.665 10.665 0 01-5.012.2 13.17 13.17 0 01-2.082-.66 9.318 9.318 0 01-1-.51c-.1-.06-.207-.13-.311-.19a6 6 0 001.132.04c.349-.05.69-.04 1.011-.11a7.326 7.326 0 002.126-.75 3.837 3.837 0 00.959-.62 3.044 3.044 0 01-1.054-.18 3.533 3.533 0 01-2.247-2.23 3.449 3.449 0 001.581-.07 2.513 2.513 0 01-1.157-.46A3.32 3.32 0 01.678 4.84c.121.06.242.12.363.17a3.923 3.923 0 00.743.21 1.118 1.118 0 00.484.04H2.25c-.178-.2-.468-.34-.648-.56a3.51 3.51 0 01-.794-3.16 3.922 3.922 0 01.38-.9.017.017 0 01.017.01 2.218 2.218 0 00.32.36A6.26 6.26 0 002.579 2a10.654 10.654 0 004.329 2.06 7.1 7.1 0 001.59.2 3.159 3.159 0 01.017-1.63 3.456 3.456 0 012-2.34 4.515 4.515 0 01.786-.24c.146-.01.29-.03.434-.05z" fill-rule="evenodd" fill="#fff"/></svg>
+                                    <include src="../app/build/images/icon-twitter.svg"></include>
                                 </a>
                                 <a href="https://pinterest.com" class="employee__link" aria-label="Pinterest.com">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="13.218" height="17"><path d="M5.501 11.04c-.141.56-.283 1.14-.43 1.7a12.442 12.442 0 01-.484 1.64 8.248 8.248 0 01-1.378 2.33c-.387.44-.305.27-.422.24-.089-.01-.1-.1-.114-.22a12.67 12.67 0 010-2.22 11.813 11.813 0 01.4-2.3c.327-1.37.638-2.71.968-4.08a.9.9 0 00.06-.3 4.163 4.163 0 01-.289-1.12 3.523 3.523 0 01.094-1.29 2.127 2.127 0 011.278-1.55 1.446 1.446 0 011.169.09 1.242 1.242 0 01.585.82 2.892 2.892 0 01-.054 1.25c-.18.81-.417 1.42-.632 2.2a2.361 2.361 0 00-.127 1.2 1.366 1.366 0 00.571.84 1.7 1.7 0 001.1.31 2.409 2.409 0 001.788-1.04 6.112 6.112 0 001.129-3.11 7.416 7.416 0 00.047-1.33A3.582 3.582 0 0010 3.03 3.543 3.543 0 008.307 1.9a5.7 5.7 0 00-2.528-.16 4.5 4.5 0 00-3.314 2.34A4.635 4.635 0 001.9 6.34 2.892 2.892 0 002.358 8a4.45 4.45 0 01.309.4 1.131 1.131 0 01-.081.77c-.074.28-.082.67-.417.67a.871.871 0 01-.43-.16A3.358 3.358 0 01.106 7.21a5.842 5.842 0 010-2.15 6.046 6.046 0 01.632-1.71A6.217 6.217 0 013.07.99 7.13 7.13 0 015.705.1c.343-.05.7-.07 1.082-.09a6.6 6.6 0 012.918.54 6 6 0 012.01 1.42 5.388 5.388 0 011.237 2.19 5.242 5.242 0 01.268 1.52 8.957 8.957 0 01-.208 1.57 6.173 6.173 0 01-2.588 4.28 4.541 4.541 0 01-1.183.53 4.307 4.307 0 01-1.513.19 3.111 3.111 0 01-1.337-.38 2.167 2.167 0 01-.89-.83z" fill="#fff" fill-rule="evenodd"/></svg>
+                                    <include src="../app/build/images/icon-pinterest.svg"></include>
                                 </a>
                                 <a href="https://dribble.com" class="employee__link" aria-label="Dribble.com">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="17.25" height="16.97"><path d="M17.084 6.78a8.368 8.368 0 00-.5-1.59 8 8 0 00-.8-1.44 8.951 8.951 0 00-1.053-1.26 8.671 8.671 0 00-1.277-1.03 8.967 8.967 0 00-1.467-.79 8.8 8.8 0 00-3.36-.66 8.8 8.8 0 00-3.361.66 9 9 0 00-1.466.79 8.619 8.619 0 00-1.277 1.03 8.89 8.89 0 00-1.054 1.26 8.129 8.129 0 00-.8 1.44 8.368 8.368 0 00-.5 1.59 8.442 8.442 0 000 3.42 8.368 8.368 0 00.5 1.59 8.129 8.129 0 00.8 1.44 8.364 8.364 0 001.054 1.26A8.619 8.619 0 003.8 15.52a9 9 0 001.466.79 9.136 9.136 0 001.622.49 8.974 8.974 0 003.477 0 9.086 9.086 0 001.622-.49 8.967 8.967 0 001.467-.79 8.671 8.671 0 001.277-1.03 8.417 8.417 0 001.053-1.26 8 8 0 00.8-1.44 8.371 8.371 0 00.5-5.01zm-1.086 1.64a17.54 17.54 0 00-5.135-.24c-.052-.12-.105-.25-.159-.37-.154-.36-.319-.71-.49-1.05a9.471 9.471 0 004.107-2.87 7.13 7.13 0 011.677 4.53zm-2.5-5.37a8.019 8.019 0 01-3.851 2.63 36.108 36.108 0 00-2.755-4.23 7.632 7.632 0 011.737-.2 7.431 7.431 0 014.868 1.8zM6.863 1.46zm-1.379.48a43.31 43.31 0 012.737 4.17A27.744 27.744 0 011.415 7a7.26 7.26 0 014.068-5.06zM1.257 8.49c0-.08 0-.15.006-.23a27.385 27.385 0 007.568-1.03c.212.41.414.82.6 1.23l-.291.09a11.583 11.583 0 00-6 4.78 7.14 7.14 0 01-1.884-4.84zm7.372 7.25a7.46 7.46 0 01-4.7-1.66l.165.12a9.907 9.907 0 015.785-4.52c.016-.01.033-.01.049-.02a29.762 29.762 0 011.575 5.5 7.443 7.443 0 01-2.875.58zm4.119-1.24a31.059 31.059 0 00-1.435-5.18 10.9 10.9 0 014.595.32 7.239 7.239 0 01-3.161 4.86z" fill="#fff" fill-rule="evenodd"/></svg>
+                                    <include src="../app/build/images/icon-dribble.svg"></include>
+                                </a>
+                                <a href="https://dribble.com" class="employee__link" aria-label="Dribble.com">
+                                    <include src="../app/build/images/icon-behance.svg"></include>
                                 </a>
                             </div>
                         </div>
@@ -409,11 +450,11 @@
             <div class="portfolio__container container">
                 <div class="portfolio__inner">
                     <div class="portfolio__tabs">
-                        <button class="portfolio__tab">All</button>
-                        <button class="portfolio__tab">Photography</button>
-                        <button class="portfolio__tab">Graphic</button>
-                        <button class="portfolio__tab">Print</button>
-                        <button class="portfolio__tab">Web</button>
+                        <button class="portfolio__tab" aria-label="show all">All</button>
+                        <button class="portfolio__tab" aria-label="Show photography">Photography</button>
+                        <button class="portfolio__tab" aria-label="Show graphic">Graphic</button>
+                        <button class="portfolio__tab" aria-label="Show print">Print</button>
+                        <button class="portfolio__tab" aria-label="Show web">Web</button>
                     </div>
                     <ul class="portfolio__list">
                         <li class="portfolio__item">
@@ -523,12 +564,13 @@
                         <p class="subscribe__text">Subscribe to our newsletter to get every Notify</p>
                         <form action="" class="subscribe__form">
                             <p class="subscribe__form-field">
-                                <label >
+                                <label>
                                     <input type="text" class="subscribe__form-input" type="email" placeholder="Your email" required>
+                                    <span class="visually-hidden">Your email</span>
                                 </label>
                             </p>
                             <p class="subscribe__form-field">
-                                <button class="btn subscribe__form-button" type="submit"><span class="visually-hidden">Subscribe button</span></button>
+                                <button class="btn subscribe__form-button" type="submit"><span class="visually-hidden" aria-label="Subscribe button">Subscribe button</span></button>
                             </p>
                         </form>
                     </div>
@@ -552,31 +594,31 @@
                             <li>
                                 <a href="" class="social-links__link">
                                     <span class="visually-hidden">Facebook</span>
-                                    <span class="fab fa-facebook-f"></span>
+                                    <include src="../app/build/images/icon-facebook.svg"></include>
                                 </a>
                             </li>
                             <li>
                                 <a href="" class="social-links__link ">
                                     <span class="visually-hidden">Google +</span>
-                                    <i class="fab fa-google-plus-g"></i>
+                                    <include src="../app/build/images/icon-google.svg"></include>
                                 </a>
                             </li>
                             <li>
                                 <a href="" class="social-links__link">
                                     <span class="visually-hidden">Twitter</span>
-                                    <span class="fab fa-twitter"></span>
+                                    <include src="../app/build/images/icon-twitter.svg"></include>
                                 </a>
                             </li>
                             <li>
                                 <a href="" class="social-links__link">
                                     <span class="visually-hidden">Vimeo</span>
-                                    <span class="fab fa-vimeo-v"></span>
+                                    <include src="../app/build/images/icon-vimeo.svg"></include>
                                 </a>
                             </li>
                             <li>
                                 <a href="" class="social-links__link">
                                     <span class="visually-hidden">linkedin</span>
-                                    <span class="fab fa-linkedin-in"></span>
+                                    <include src="../app/build/images/icon-linkedin-in.svg"></include>
                                 </a>
                             </li>
                         </ul>
@@ -661,37 +703,31 @@
                             <li>
                                 <a href="" class="social-links__link">
                                     <span class="visually-hidden">Facebook</span>
-                                    <span class="fab fa-facebook-f"></span>
+                                    <include src="../app/build/images/icon-facebook.svg"></include>
                                 </a>
                             </li>
                             <li>
                                 <a href="" class="social-links__link ">
                                     <span class="visually-hidden">Google +</span>
-                                    <i class="fab fa-google-plus-g"></i>
+                                    <include src="../app/build/images/icon-google.svg"></include>
                                 </a>
                             </li>
                             <li>
                                 <a href="" class="social-links__link">
                                     <span class="visually-hidden">Twitter</span>
-                                    <span class="fab fa-twitter"></span>
+                                    <include src="../app/build/images/icon-twitter.svg"></include>
                                 </a>
                             </li>
                             <li>
                                 <a href="" class="social-links__link">
                                     <span class="visually-hidden">Vimeo</span>
-                                    <span class="fab fa-vimeo-v"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" class="social-links__link">
-                                    <span class="visually-hidden">Pinterest</span>
-                                    <span class="fab fa-pinterest"></span>
+                                    <include src="../app/build/images/icon-vimeo.svg"></include>
                                 </a>
                             </li>
                             <li>
                                 <a href="" class="social-links__link">
                                     <span class="visually-hidden">linkedin</span>
-                                    <span class="fab fa-linkedin"></span>
+                                    <include src="../app/build/images/icon-linkedin-in.svg"></include>
                                 </a>
                             </li>
                         </ul>
